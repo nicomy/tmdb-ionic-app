@@ -4,8 +4,18 @@
 (function (module) {
   'use strict';
 
-  function StatesService(httpService, i18nService) {
+  function StatesService($q, httpService, i18nService) {
     var service = this;
+
+    service.getMovie = function (id) {
+      return $q.resolve({ id: id, title: 'Movie', descirption: 'Awesome' });
+    };
+
+    service.search = function (query) {
+      return $q.resolve(
+        [{ tilte: query, id: 1 }, { title: query, id: 2 }]
+        );
+    };
 
     /**
      * Resolve states data.
@@ -20,6 +30,7 @@
   }
 
   module.service('statesService', [
+    '$q',
     'httpService',
     'i18nService',
     StatesService
