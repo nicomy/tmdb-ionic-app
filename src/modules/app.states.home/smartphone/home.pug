@@ -2,19 +2,19 @@ ion-view(view-title="Accueil")
   ion-header-bar.bar-subheader.item-input-inset
     label.item-input-wrapper
       i.icon.ion-ios-search.placeholder-icon
-        input(type="search",placeholder="Rechercher", ng-model ="search.query")
-      butto.button.button-clear.button-royal(
-      ng-diseable="search.query.length < 3",
-      on-tape="homeController.Search()")
-        | OK
+      input(type="search",placeholder="Rechercher", ng-model ="search.query")
+    button.button.button-clear.button-royal(
+      ng-disabled="search.query.length < 3",
+      on-tap="homeController.search()")
+      | OK
   ion-content
     ion-list
-        ion-item.item-divider Résultats
-        ion-item(ng-if="search.results.length < 1") Aucun résultat
-        ion-item.item-icon-rigth(
-          ng-repeat="result in search.results",
-          ui-state-params="{ movieId: result.id }",
-          ui-state="STATE_DETAILS")
-          | {{result.title}}
-          i.icon.ion-ios-arrow-forward
+      ion-item.item-divider Résultats
+      ion-item(ng-if="search.results.length < 1") Aucun résultat
+      ion-item.item-icon-rigth(
+        ng-repeat="result in search.results",
+        ui-state-params="{ movieId: result.id }",
+        ui-state="STATE_DETAILS")
+        | {{result.title}}
+        i.icon.ion-ios-arrow-forward
 

@@ -9,7 +9,7 @@
 
     $scope.Search = { query: '', results: [] };
 
-    controller.Search = function () {
+    controller.search = function () {
       statesService.search($scope.search.query).then(function (results) {
         $scope.search.results = results;
       });
